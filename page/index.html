@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../jqueryPagination/css/jquery.pagination.css">
+	<script src="../lib/jquery/jquery-1.12.4.min.js"></script>
+	<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../lib/arttemplate/template.js"></script>
+	<script src="../jquery_plugins/jquery.cookie.js"></script>
+	<script src="../jqueryPagination/js/jquery.pagination.min.js"></script>
+	
+	<script src="../js/index.js"></script>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.right{
+			float: right;
+		}
+		.page{
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="bs-example" data-example-id="inverted-navbar">
+		    <nav class="navbar navbar-inverse">
+		      <div class="container-fluid">
+		        <div class="navbar-header">
+		          <span class="navbar-brand">拉勾网管理系统</span>
+		        </div>
+		        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+		          <ul class="nav navbar-nav">
+		            <li class="active shouye"><a href="#">首页</a></li>
+		            <li class="z_guanli"><a href="#">职位管理</a></li>
+		          </ul>
+		          <ul class="nav navbar-nav right header_right">
+		            <li><a href="#" class="" data-toggle="modal" data-target="#exampleModal">登录</a></li>
+		            <li><a href="#" class="" data-toggle="modal" data-target="#exampleModal2">注册</a></li>
+		          </ul>
+		        </div>
+		      </div>
+		    </nav>
+	  	</div>
+	<!-- 登录弹出框 -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+		<div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h3 class="" id="exampleModalLabel">用户登录</h3>
+		      </div>
+		      <div class="modal-body">
+		        <form>
+		          <div class="form-group">
+		            <label for="recipient-name" class="control-label">用户名:</label>
+		            <input type="text" class="form-control" id="l_username">
+		          </div>
+		          <div class="form-group">
+		            <label for="message-text" class="control-label">密码:</label>
+		            <input type="password" class="form-control" id="l_password">
+		          </div>
+		        </form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default btn-primary login_btn" data-dismiss="modal">登录</button>
+		      </div>
+		    </div>
+		  </div>
+	</div>
+	<!-- 注册弹出框 -->
+	<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+		<div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h3 class="" id="exampleModalLabel">用户注册</h3>
+		      </div>
+		      <div class="modal-body">
+		        <form>
+		          <div class="form-group">
+		            <label for="recipient-name" class="control-label">用户名:</label>
+		            <input type="text" class="form-control" id="r_username" placeholder="输入用户名">
+		          </div>
+		          <div class="form-group">
+		            <label for="message-text" class="control-label">密码:</label>
+		            <input type="password" class="form-control" id="r_password" placeholder="输入密码">
+		          </div>
+		           <div class="form-group">
+		            <label for="message-text" class="control-label">确认密码:</label>
+		            <input type="password" class="form-control" id="re_password" placeholder="再次输入密码">
+		          </div>
+		          <div class="form-group">
+		            <label for="message-text" class="control-label">邮箱:</label>
+		            <input type="text" class="form-control" id="r_email" placeholder="输入e-mail地址">
+		          </div>
+		        </form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-primary regist_btn">注册</button>
+		      </div>
+		    </div>
+		</div>
+	</div>
+	<!-- 首页显示 -->
+	<div class="alert alert-info" role="alert">
+      <strong>基于NodeJS+Express+EJS+MongooseDB 的拉勾网后台管理系统</strong>
+    </div>
+    <!-- 职位管理 -->
+    <div class="bs-example hidden company_show" data-example-id="bordered-table">
+    	<div style="margin-bottom: 20px"><span style="font-size: 17px;color: #999">职位管理</span><button type="button" class="btn btn-primary right" data-toggle="modal" data-target="#exampleModal3">添加</button></div>
+	    <table class="table table-bordered">
+	      <thead>
+	        <tr>
+	          <th>序号</th>
+	          <th>公司logo</th>
+	          <th>职位名称</th>
+	          <th>公司名称</th>
+	          <th>工作经验</th>
+	          <th>职位类型</th>
+	          <th>工作地点</th>
+	          <th>职位薪资</th>
+	          <th>操作</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+	             
+	      </tbody>
+	    </table>
+  		<div id="pagination1" class="page fl container"></div>
+  	</div>
+  	<!-- 添加公司信息弹出框 -->
+	<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+		<div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h3 class="" id="exampleModalLabel">职位信息</h3>
+		      </div>
+		      <div class="modal-body">
+		        <form>
+		          <div class="form-group">
+		            <label for="recipient-name" class="control-label">公司logo:</label>
+		            <input type="file" class="form-control" id="c_logo">
+		            <img src="" alt="" class="hidden show_imgs">
+		          </div>
+		          <div class="form-group">
+		            <label for="message-text" class="control-label">职位名称</label>
+		            <input type="text" class="form-control" id="z_name" placeholder="输入职位名称">
+		          </div>
+		           <div class="form-group">
+		            <label for="message-text" class="control-label">公司名称</label>
+		            <input type="text" class="form-control" id="c_name" placeholder="输入公司名称">
+		          </div>
+		          <div class="form-group">
+		            <label for="message-text" class="control-label">工作经验</label>
+		            <input type="text" class="form-control" id="w_exprience" placeholder="输入工作经验">
+		          </div>
+		          <div class="form-group">
+		            <label for="message-text" class="control-label">职位类型</label>
+		            <input type="text" class="form-control" id="z_type" placeholder="输入职位类型">
+		          </div>
+		          <div class="form-group">
+		            <label for="message-text" class="control-label">工作地点</label>
+		            <input type="text" class="form-control" id="w_address" placeholder="输入工作地点">
+		          </div>
+		          <div class="form-group">
+		            <label for="message-text" class="control-label">职位薪资</label>
+		            <input type="text" class="form-control" id="z_money" placeholder="输入职位薪资">
+		          </div>
+		        </form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-primary add_btn" data-dismiss="modal">添加</button>
+		      </div>
+		    </div>
+		</div>
+	</div>
+  	<script type="text/html" id="listTemp">
+  		{{each list as item index}}
+  			<tr>
+	          <th scope="row">{{index+1}}</th>
+	          <td><img src="{{item.logo}}" alt="" style="width: 50px;height: 40px;"></td>
+	          <td>{{item.z_name}}</td>
+	          <td>{{item.c_name}}</td>
+	          <td>{{item.exprience}}</td>
+	          <td>{{item.type}}</td>
+	          <td>{{item.address}}</td>
+	          <td>{{item.money}}</td>
+	          <td><a href="#" class="update" data-id={{item._id}} data-toggle="modal" data-target="#exampleModal3">修改 </a><a href="#" class="delete" data-id={{item._id}}> 删除</a></td>
+	        </tr>
+  		{{/each}}
+  	</script>
+</body>
+</html>
